@@ -1,3 +1,5 @@
+using Bitspace.Constants;
+using Bitspace.Services;
 using Bitspace.ViewModels;
 using Bitspace.Views;
 using Prism;
@@ -19,15 +21,25 @@ namespace Bitspace
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"NavigationPage/{NavigationConstants.Mainpage}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            RegisterServices(containerRegistry);
+            RegisterNavigation(containerRegistry);
+        }
 
+        private void RegisterServices(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.RegisterSingleton<IDeviceInformationService, DeviceInformationService>();
+        }
+
+        private void RegisterNavigation(IContainerRegistry containerRegistry)
+        {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>(NavigationConstants.Mainpage);
         }
     }
 }
