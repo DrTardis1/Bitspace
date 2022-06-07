@@ -1,3 +1,5 @@
+using Bitspace.APIs;
+using Bitspace.APIs.OpenWeather;
 using Bitspace.Constants;
 using Bitspace.Services;
 using Bitspace.ViewModels;
@@ -27,6 +29,7 @@ namespace Bitspace
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             RegisterServices(containerRegistry);
+            RegisterAPIs(containerRegistry);
             RegisterNavigation(containerRegistry);
         }
 
@@ -34,12 +37,18 @@ namespace Bitspace
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.RegisterSingleton<IDeviceInformationService, DeviceInformationService>();
+            containerRegistry.Register<IHttpClient, ExtendedHttpClient>();
         }
 
         private void RegisterNavigation(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>(NavigationConstants.Mainpage);
+        }
+
+        private void RegisterAPIs(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.Register<IOpenWeatherService, OpenWeatherAPI>();
         }
     }
 }
