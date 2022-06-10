@@ -1,8 +1,8 @@
 using Bitspace.APIs;
 using Bitspace.APIs.OpenWeather;
 using Bitspace.Constants;
+using Bitspace.Pages.Mainpage;
 using Bitspace.Services;
-using Bitspace.ViewModels;
 using Bitspace.Views;
 using Prism;
 using Prism.Ioc;

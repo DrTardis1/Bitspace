@@ -2,7 +2,7 @@
 
 namespace Bitspace.APIs.OpenWeather.Responses
 {
-    public class WeatherObject
+    public class WeatherResponseModel
     {
         [JsonProperty("id")]
         public int Id { get; set; }

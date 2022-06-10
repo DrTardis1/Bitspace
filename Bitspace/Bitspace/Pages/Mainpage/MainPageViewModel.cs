@@ -1,11 +1,11 @@
 ﻿using Bitspace.APIs.OpenWeather;
 using Prism.Navigation;
 
-namespace Bitspace.ViewModels
+namespace Bitspace.Pages.Mainpage
 {
     public class MainPageViewModel : BasePageViewModel
     {
-        private IOpenWeatherService _openWeatherService;
+        private readonly IOpenWeatherService _openWeatherService;
         public MainPageViewModel(
             INavigationService navigationService,
             IOpenWeatherService openWeatherService)

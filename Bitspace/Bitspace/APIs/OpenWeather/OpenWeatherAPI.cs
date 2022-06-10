@@ -1,4 +1,6 @@
 ﻿using System;
+using Bitspace.APIs.OpenWeather.Responses;
+using Newtonsoft.Json;
 
 namespace Bitspace.APIs.OpenWeather
 {
@@ -17,8 +19,10 @@ namespace Bitspace.APIs.OpenWeather
 
         public async void GetCurrentWeather()
         {
-            var url = new Uri($"https://api.openweathermap.org/data/3.0/onecall?lat={Latitude}&lon={Longitude}&appid={APIKEY}");
+            var url = new Uri($"https://api.openweathermap.org/data/2.5/weather?units=metric&lat={Latitude}&lon={Longitude}&appid={APIKEY}");
             var response = await _client.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<CurrentWeatherResponse>(content);
         }
     }
 }

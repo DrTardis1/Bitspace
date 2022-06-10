@@ -1,7 +1,7 @@
 ﻿using Prism.Mvvm;
 using Prism.Navigation;
 
-namespace Bitspace.ViewModels
+namespace Bitspace.Pages
 {
     public class BasePageViewModel : BindableBase, IInitialize, INavigationAware, IDestructible
     {

@@ -1,8 +1,8 @@
 ﻿namespace Bitspace.Styles
 {
-    public partial class Styles
+    public partial class Palette
     {
-        public Styles()
+        public Palette()
         {
             InitializeComponent();
         }

@@ -4,11 +4,5 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:bitspace="clr-namespace:Bitspace">
-
-    <Color x:Key="Dark">#282829</Color>
-    <Color x:Key="White">#f4f5f4</Color>
-    <Color x:Key="Blue">#1c58b9</Color>
-    <Color x:Key="Green">#3aaa57</Color>
-
-    <!--<bitspace:ColorRef x:Key="Color_Primary" Color="{x:Static Dark}"/> -->
+    <bitspace:ColorRef x:Key="Color_Primary" Color="{StaticResource Dark}" />
 </ResourceDictionary>
